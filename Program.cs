@@ -7,16 +7,16 @@ namespace Planner
         static void Main(string[] args)
         {
             Building BigBillTheBuilding = new Building("123 Bold Bridge Boulevard");
-            BigBillTheBuilding.Width = 10000;
-            BigBillTheBuilding.Depth = 15000;
+            BigBillTheBuilding.Width = 1;
+            BigBillTheBuilding.Depth = 20;
             BigBillTheBuilding.Stories = 10;
             BigBillTheBuilding.Construct();
             BigBillTheBuilding.Purchase("Bill Buttlicker");
 
             Building TallTimTheTower = new Building("456 Tootenbacher Trace");
-            TallTimTheTower.Width = 1000;
-            TallTimTheTower.Depth = 1500;
-            TallTimTheTower.Stories = 100;
+            TallTimTheTower.Width = 7.00;
+            TallTimTheTower.Depth = 3.00;
+            TallTimTheTower.Stories = 1;
             TallTimTheTower.Construct();
             TallTimTheTower.Purchase("Tony TwoTimer");
 
@@ -27,15 +27,17 @@ namespace Planner
             SmallSidTheShed.Construct();
             SmallSidTheShed.Purchase("Samantha Sondheim");
 
-            Console.WriteLine(BigBillTheBuilding._address);
-            Console.WriteLine("---------");
-            Console.WriteLine($"Designed by {BigBillTheBuilding._designer}");
-            Console.WriteLine($"Owned by {BigBillTheBuilding._owner}");
-            Console.WriteLine($"{BigBillTheBuilding.Volume()} cubic meters of space");
+            City NittyGrittyCity = new City();
+            NittyGrittyCity.Mayor = "Greta Goobertensen";
+            NittyGrittyCity.YearEstablished = 2020;
+            NittyGrittyCity.AddBuilding(BigBillTheBuilding);
 
-            BigBillTheBuilding.WriteBuildingInfo();
-            TallTimTheTower.WriteBuildingInfo();
-            SmallSidTheShed.WriteBuildingInfo();
+            NittyGrittyCity.AddBuilding(SmallSidTheShed);
+
+            foreach(Building building in NittyGrittyCity.Buildings)
+            {
+                building.WriteBuildingInfo();
+            }
         }
     }
 }
