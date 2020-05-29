@@ -1,4 +1,4 @@
-
+using System;
 
 namespace Planner
 {
@@ -31,5 +31,14 @@ namespace Planner
         {
             _owner = owner;
         }
+
+        public void WriteBuildingInfo()
+            {
+                Console.WriteLine(_address);
+                Console.WriteLine("---------");
+                Console.WriteLine($"Designed by {_designer}");
+                Console.WriteLine($"Owned by {_owner}");
+                Console.WriteLine($"{Volume()} cubic meters of space");
+            }
     }
 }
